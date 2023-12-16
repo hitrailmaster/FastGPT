@@ -976,18 +976,18 @@ export const appTemplates: (AppItemType & {
             valueType: 'any',
             connected: false
           },
-          {
-            key: 'systemPrompt',
-            type: 'textarea',
-            valueType: 'string',
-            value:
-              'laf 是云开发平台，可以快速的开发应用\nlaf 是一个开源的 BaaS 开发平台（Backend as a Service)\nlaf 是一个开箱即用的 serverless 开发平台\nlaf 是一个集「函数计算」、「数据库」、「对象存储」等于一身的一站式开发平台\nlaf 可以是开源版的腾讯云开发、开源版的 Google Firebase、开源版的 UniCloud',
-            label: '系统提示词',
-            description:
-              '你可以添加一些特定内容的介绍，从而更好的识别用户的问题类型。这个内容通常是给模型介绍一个它不知道的内容。',
-            placeholder: '例如: \n1. Laf 是一个云函数开发平台……\n2. Sealos 是一个集群操作系统',
-            connected: true
-          },
+          // {
+          //   key: 'systemPrompt',
+          //   type: 'textarea',
+          //   valueType: 'string',
+          //   value:
+          //     'laf 是云开发平台，可以快速的开发应用\nlaf 是一个开源的 BaaS 开发平台（Backend as a Service)\nlaf 是一个开箱即用的 serverless 开发平台\nlaf 是一个集「函数计算」、「数据库」、「对象存储」等于一身的一站式开发平台\nlaf 可以是开源版的腾讯云开发、开源版的 Google Firebase、开源版的 UniCloud',
+          //   label: '系统提示词',
+          //   description:
+          //     '你可以添加一些特定内容的介绍，从而更好的识别用户的问题类型。这个内容通常是给模型介绍一个它不知道的内容。',
+          //   placeholder: '例如: \n1. Laf 是一个云函数开发平台……\n2. Sealos 是一个集群操作系统',
+          //   connected: true
+          // },
           {
             key: 'history',
             type: 'target',
@@ -1012,10 +1012,10 @@ export const appTemplates: (AppItemType & {
                 value: '打招呼、问候等问题',
                 key: 'fasw'
               },
-              {
-                value: '“laf” 的问题',
-                key: 'fqsw'
-              },
+              // {
+              //   value: '“laf” 的问题',
+              //   key: 'fqsw'
+              // },
               {
                 value: '商务问题',
                 key: 'fesw'
@@ -1090,17 +1090,17 @@ export const appTemplates: (AppItemType & {
             label: '触发器',
             valueType: 'any',
             connected: true
-          },
-          {
-            key: 'text',
-            type: 'textarea',
-            valueType: 'string',
-            value: '你好，我是 laf 助手，有什么可以帮助你的？',
-            label: '回复的内容',
-            description:
-              '可以使用 \\n 来实现连续换行。\n\n可以通过外部模块输入实现回复，外部模块输入时会覆盖当前填写的内容',
-            connected: true
           }
+          // {
+          //   key: 'text',
+          //   type: 'textarea',
+          //   valueType: 'string',
+          //   value: '你好，我是 laf 助手，有什么可以帮助你的？',
+          //   label: '回复的内容',
+          //   description:
+          //     '可以使用 \\n 来实现连续换行。\n\n可以通过外部模块输入实现回复，外部模块输入时会覆盖当前填写的内容',
+          //   connected: true
+          // }
         ],
         outputs: [
           {
@@ -1128,17 +1128,17 @@ export const appTemplates: (AppItemType & {
             label: '触发器',
             valueType: 'any',
             connected: true
-          },
-          {
-            key: 'text',
-            type: 'textarea',
-            valueType: 'string',
-            value: '你好，我仅能回答 laf 相关问题，请问你有什么问题么？',
-            label: '回复的内容',
-            description:
-              '可以使用 \\n 来实现连续换行。\n\n可以通过外部模块输入实现回复，外部模块输入时会覆盖当前填写的内容',
-            connected: true
           }
+          // {
+          //   key: 'text',
+          //   type: 'textarea',
+          //   valueType: 'string',
+          //   value: '你好，我仅能回答 laf 相关问题，请问你有什么问题么？',
+          //   label: '回复的内容',
+          //   description:
+          //     '可以使用 \\n 来实现连续换行。\n\n可以通过外部模块输入实现回复，外部模块输入时会覆盖当前填写的内容',
+          //   connected: true
+          // }
         ],
         outputs: [
           {
@@ -1250,19 +1250,19 @@ export const appTemplates: (AppItemType & {
             ],
             connected: true
           },
-          {
-            key: 'systemPrompt',
-            type: 'textarea',
-            label: '系统提示词',
-            max: 300,
-            valueType: 'string',
-            description:
-              '模型固定的引导词，通过调整该内容，可以引导模型聊天方向。该内容会被固定在上下文的开头。可使用变量，例如 {{language}}',
-            placeholder:
-              '模型固定的引导词，通过调整该内容，可以引导模型聊天方向。该内容会被固定在上下文的开头。可使用变量，例如 {{language}}',
-            value: '知识库是关于 laf 的内容。',
-            connected: true
-          },
+          // {
+          //   key: 'systemPrompt',
+          //   type: 'textarea',
+          //   label: '系统提示词',
+          //   max: 300,
+          //   valueType: 'string',
+          //   description:
+          //     '模型固定的引导词，通过调整该内容，可以引导模型聊天方向。该内容会被固定在上下文的开头。可使用变量，例如 {{language}}',
+          //   placeholder:
+          //     '模型固定的引导词，通过调整该内容，可以引导模型聊天方向。该内容会被固定在上下文的开头。可使用变量，例如 {{language}}',
+          //   value: '知识库是关于 laf 的内容。',
+          //   connected: true
+          // },
           {
             key: 'quoteTemplate',
             type: 'hidden',
@@ -1506,8 +1506,7 @@ export const appTemplates: (AppItemType & {
             key: 'welcomeText',
             type: 'hidden',
             label: '开场白',
-            value:
-              '你好，我是 laf 助手，有什么可以帮助你的？\n[laf 是什么？有什么用？]\n[laf 在线体验地址]\n[官网地址是多少]',
+            value: '你好，我是 你的 助手，有什么可以帮助你的？',
             connected: true
           },
           {
