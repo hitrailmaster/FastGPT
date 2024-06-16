@@ -7,6 +7,7 @@ import { hashStr } from '@fastgpt/global/common/string/tools';
 import { getInitConfig } from '@/pages/api/system/getInitData';
 import { createDefaultTeam } from '@fastgpt/service/support/user/team/controller';
 import { exit } from 'process';
+import { createUserAndJoinTeam } from '@fastgpt/service/support/user/controller';
 
 /**
  * connect MongoDB and init data
@@ -20,7 +21,7 @@ export function connectToDatabase(): Promise<void> {
       initPg();
       // start queue
       startQueue();
-      return initRootUser();
+      // return initRootUser();
     }
   });
 }
@@ -51,6 +52,8 @@ async function initRootUser() {
     }
     // init root team
     await createDefaultTeam({ userId: rootId, maxSize: 1, balance: 9999 * PRICE_SCALE });
+
+    // await createUserAndJoinTeam({ username: "admin1", password: '123456' }, rootId);
 
     console.log(`root user init:`, {
       username: 'root',

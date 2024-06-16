@@ -6,7 +6,8 @@ import {
   InviteMemberResponse,
   UpdateInviteProps,
   UpdateTeamMemberProps,
-  UpdateTeamProps
+  UpdateTeamProps,
+  addTeamMemberProps
 } from '@fastgpt/global/support/user/team/controller.d';
 import {
   TeamItemType,
@@ -26,7 +27,11 @@ export const putSwitchTeam = (teamId: string) =>
 
 /* --------------- team member ---------------- */
 export const getTeamMembers = (teamId: string) =>
-  GET<TeamMemberItemType[]>(`/plusApi/support/user/team/member/list`, { teamId });
+  // GET<TeamMemberItemType[]>(`/plusApi/support/user/team/member/list`, { teamId });
+  GET<TeamMemberItemType[]>(`/support/user/team/member/list`, { teamId });
+export const addTeamMember = (data: addTeamMemberProps) =>
+  // POST<InviteMemberResponse>(`/plusApi/support/user/team/member/add`, data);
+  POST<InviteMemberResponse>(`/support/user/team/member/add`, data);
 export const postInviteTeamMember = (data: InviteMemberProps) =>
   POST<InviteMemberResponse>(`/plusApi/support/user/team/member/invite`, data);
 export const putUpdateMember = (data: UpdateTeamMemberProps) =>

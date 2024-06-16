@@ -34,7 +34,7 @@ export const streamFetch = ({
         body: JSON.stringify({
           ...data,
           detail: true,
-          stream: true
+          stream: false
         })
       });
 

@@ -14,12 +14,14 @@ import { serviceSideProps } from '@/web/common/utils/i18n';
 import { feConfigs } from '@/web/common/system/staticData';
 import { useTranslation } from 'next-i18next';
 import Script from 'next/script';
+import { TeamMemberRoleEnum } from '@fastgpt/global/support/user/team/constant';
 
 const Promotion = dynamic(() => import('./components/Promotion'));
 const BillTable = dynamic(() => import('./components/BillTable'));
 const PayRecordTable = dynamic(() => import('./components/PayRecordTable'));
 const InformTable = dynamic(() => import('./components/InformTable'));
 const ApiKeyTable = dynamic(() => import('./components/ApiKeyTable'));
+const UserManage = dynamic(() => import('./components/UserManage'));
 
 enum TabEnum {
   'info' = 'info',
@@ -28,7 +30,8 @@ enum TabEnum {
   'pay' = 'pay',
   'inform' = 'inform',
   'apikey' = 'apikey',
-  'loginout' = 'loginout'
+  'loginout' = 'loginout',
+  'userManage' = 'userManage'
 }
 
 const Account = ({ currentTab }: { currentTab: `${TabEnum}` }) => {
@@ -68,21 +71,30 @@ const Account = ({ currentTab }: { currentTab: `${TabEnum}` }) => {
           }
         ]
       : []),
-    ...(userInfo?.team.canWrite
-      ? [
-          {
-            icon: 'apikey',
-            label: t('user.apikey.key'),
-            id: TabEnum.apikey
-          }
-        ]
-      : []),
+    // ...(userInfo?.team.canWrite
+    //   ? [
+    //       {
+    //         icon: 'apikey',
+    //         label: t('user.apikey.key'),
+    //         id: TabEnum.apikey
+    //       }
+    //     ]
+    //   : []),
     ...(feConfigs.isPlus
       ? [
           {
             icon: 'informLight',
             label: t('user.Notice'),
             id: TabEnum.inform
+          }
+        ]
+      : []),
+    ...(userInfo?.team.role === TeamMemberRoleEnum.owner
+      ? [
+          {
+            icon: 'informLight',
+            label: t('user.User Manage'),
+            id: TabEnum.userManage
           }
         ]
       : []),
@@ -165,6 +177,7 @@ const Account = ({ currentTab }: { currentTab: `${TabEnum}` }) => {
             {currentTab === TabEnum.pay && <PayRecordTable />}
             {currentTab === TabEnum.inform && <InformTable />}
             {currentTab === TabEnum.apikey && <ApiKeyTable />}
+            {currentTab === TabEnum.userManage && <UserManage />}
           </Box>
         </Flex>
         <ConfirmModal />

@@ -10,6 +10,7 @@ import type { ChatItemType } from '@fastgpt/global/core/chat/type';
 import { authApp } from '@fastgpt/service/support/permission/auth/app';
 import { authUser } from '@/service/support/permission/auth/user';
 import { dispatchModules } from '@/service/moduleDispatch';
+import { textAdaptGptResponse } from '@/utils/adapt';
 
 export type Props = {
   history: ChatItemType[];
@@ -50,7 +51,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     ]);
 
     /* start process */
-    const { responseData } = await dispatchModules({
+    const { responseData, answerText } = await dispatchModules({
       res,
       appId,
       modules,
@@ -62,10 +63,17 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         history,
         userChatInput: prompt
       },
-      stream: true,
+      stream: false,
       detail: true
     });
-
+    console.log('test', JSON.stringify(responseData));
+    responseWrite({
+      res,
+      event: sseResponseEventEnum.answer,
+      data: textAdaptGptResponse({
+        text: answerText
+      })
+    });
     responseWrite({
       res,
       event: sseResponseEventEnum.answer,

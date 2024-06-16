@@ -209,6 +209,7 @@ const ChatBox = (
   );
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const generatingMessage = ({ text = '', status, name }: generatingMessageProps) => {
+    console.log('test', text, status, name);
     setChatHistory((state) =>
       state.map((item, index) => {
         if (index !== state.length - 1) return item;
@@ -297,7 +298,7 @@ const ChatBox = (
         });
         return;
       }
-
+      console.log('test', history);
       const newChatList: ChatSiteItemType[] = [
         ...history,
         {

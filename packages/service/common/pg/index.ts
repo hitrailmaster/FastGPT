@@ -2,6 +2,7 @@ import { Pool } from 'pg';
 import type { QueryResultRow } from 'pg';
 import { PgDatasetTableName } from '@fastgpt/global/core/dataset/constant';
 
+process.env.PG_URL = 'postgresql://username:password@localhost:5432/postgres';
 export const connectPg = async (): Promise<Pool> => {
   if (global.pgClient) {
     return global.pgClient;

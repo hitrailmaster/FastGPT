@@ -49,15 +49,8 @@ function App({ Component, pageProps }: AppProps) {
         feConfigs: { scripts, isPlus, systemTitle }
       } = await clientInitData();
 
-      setTitle(systemTitle || 'FastGPT');
+      setTitle(systemTitle || '');
 
-      // log fastgpt
-      !isPlus &&
-        console.log(
-          '%cWelcome to FastGPT',
-          'font-family:Arial; color:#3370ff ; font-size:18px; font-weight:bold;',
-          `GitHub：https://github.com/labring/FastGPT`
-        );
       setScripts(scripts || []);
     })();
 

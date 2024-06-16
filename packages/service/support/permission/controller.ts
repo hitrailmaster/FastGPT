@@ -200,7 +200,7 @@ export const setCookie = (res: NextApiResponse, token: string) => {
 export const clearCookie = (res: NextApiResponse) => {
   res.setHeader('Set-Cookie', 'token=; Path=/; Max-Age=0');
 };
-
+process.env.FILE_TOKEN_KEY = 'filetoken';
 /* file permission */
 export const createFileToken = (data: FileTokenQuery) => {
   if (!process.env.FILE_TOKEN_KEY) {

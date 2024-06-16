@@ -127,12 +127,12 @@ export const dispatchChatCompletion = async (props: ChatProps): Promise<ChatResp
       stream,
       // seed: temperature < 0.3 ? 1 : undefined,
       messages: concatMessages
-    },
-    {
-      headers: {
-        Accept: 'application/json, text/plain, */*'
-      }
     }
+    // {
+    //   headers: {
+    //     Accept: 'application/json, text/plain, */*'
+    //   }
+    // }
   );
 
   const { answerText, totalTokens, completeMessages } = await (async () => {
@@ -161,10 +161,11 @@ export const dispatchChatCompletion = async (props: ChatProps): Promise<ChatResp
         completeMessages
       };
     } else {
+      console.log('unStreamResponse', response);
       const unStreamResponse = response as ChatCompletion;
       const answer = unStreamResponse.choices?.[0]?.message?.content || '';
       const totalTokens = unStreamResponse.usage?.total_tokens || 0;
-
+      console.log('answer', answer);
       const completeMessages = filterMessages.concat({
         obj: ChatRoleEnum.AI,
         value: answer

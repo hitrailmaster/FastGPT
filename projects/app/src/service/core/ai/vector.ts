@@ -29,7 +29,7 @@ export async function getVectorsByText({
 
     // 获取 chatAPI
     const ai = getAIApi();
-
+    console.log('test', input);
     // 把输入的内容转成向量
     const result = await ai.embeddings
       .create({

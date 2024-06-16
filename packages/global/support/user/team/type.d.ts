@@ -38,11 +38,14 @@ export type TeamItemType = {
 };
 
 export type TeamMemberItemType = {
+  _id: string;
   userId: string;
   tmbId: string;
   teamId: string;
   memberName: string;
+  name: string;
   avatar: string;
   role: `${TeamMemberRoleEnum}`;
   status: `${TeamMemberStatusEnum}`;
+  createTime: string;
 };

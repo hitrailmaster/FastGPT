@@ -11,7 +11,7 @@ import Avatar from '../Avatar';
 import MyIcon from '../Icon';
 import { useTranslation } from 'next-i18next';
 import { useSystemStore } from '@/web/common/system/useSystemStore';
-import MyTooltip from '../MyTooltip';
+// import MyTooltip from '../MyTooltip';
 
 export enum NavbarTypeEnum {
   normal = 'normal',
@@ -174,7 +174,7 @@ const Navbar = ({ unread }: { unread: number }) => {
           </Link>
         </Box>
       )}
-      {feConfigs?.docUrl && (
+      {/* {feConfigs?.docUrl && (
         <MyTooltip label={t('home.Docs')} placement={'right-end'}>
           <Box
             {...itemStyles}
@@ -201,7 +201,7 @@ const Navbar = ({ unread }: { unread: number }) => {
             <MyIcon name={'git'} width={'22px'} height={'22px'} />
           </Link>
         </MyTooltip>
-      )}
+      )} */}
     </Flex>
   );
 };

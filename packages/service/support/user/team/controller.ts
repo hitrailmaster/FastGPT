@@ -7,6 +7,7 @@ import {
   TeamMemberCollectionName,
   leaveStatus
 } from '@fastgpt/global/support/user/team/constant';
+import { authUserExist } from '../controller';
 
 async function getTeam(match: Record<string, any>): Promise<TeamItemType> {
   const db = connectionMongo?.connection?.db;
@@ -114,6 +115,7 @@ export async function createDefaultTeam({
       createTime: new Date(),
       defaultTeam: true
     });
+    return insertedId;
   } else {
     console.log('default team exist', userId);
     await Team.updateOne(
@@ -127,5 +129,45 @@ export async function createDefaultTeam({
         }
       }
     );
+    // return tmb.;
   }
 }
+export const getTeamByAdminUserId = async (admainId: string) => {
+  const db = connectionMongo.connection.db;
+  const TeamMember = db.collection(TeamMemberCollectionName);
+  const tmb = await TeamMember.findOne({
+    userId: new Types.ObjectId(admainId),
+    defaultTeam: true
+  });
+  return tmb;
+};
+export const insertUserToTeam = async (
+  userId: string,
+  teamId: string,
+  role: TeamMemberRoleEnum
+) => {
+  const user = await authUserExist({ userId });
+  if (user) {
+    const db = connectionMongo.connection.db;
+    const TeamMember = db.collection(TeamMemberCollectionName);
+    await TeamMember.insertOne({
+      teamId: new Types.ObjectId(teamId),
+      userId,
+      name: user.username,
+      role,
+      status: TeamMemberStatusEnum.active,
+      createTime: new Date(),
+      defaultTeam: true
+    });
+  }
+};
+export const getTeamMemberList = async (teamId: string) => {
+  const db = connectionMongo?.connection?.db;
+  const TeamMember = db.collection(TeamMemberCollectionName);
+
+  const list = await TeamMember.find({
+    teamId: new Types.ObjectId(teamId)
+  }).toArray();
+
+  return list;
+};

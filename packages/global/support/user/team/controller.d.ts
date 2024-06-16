@@ -41,3 +41,9 @@ export type InviteMemberResponse = Record<
   'invite' | 'inValid' | 'inTeam',
   { username: string; userId: string }[]
 >;
+export type addTeamMemberProps = {
+  teamId: string;
+  userName: string;
+  password: string;
+  role: `${TeamMemberRoleEnum}`;
+};

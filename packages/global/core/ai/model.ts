@@ -10,8 +10,8 @@ import type {
 
 export const defaultChatModels: ChatModelItemType[] = [
   {
-    model: 'gpt-3.5-turbo-1106',
-    name: 'GPT35-1106',
+    model: 'deepseek-chat',
+    name: 'deepseek-chat',
     price: 0,
     maxContext: 16000,
     maxResponse: 4000,
@@ -20,48 +20,12 @@ export const defaultChatModels: ChatModelItemType[] = [
     censor: false,
     vision: false,
     defaultSystemChatPrompt: ''
-  },
-  {
-    model: 'gpt-3.5-turbo-16k',
-    name: 'GPT35-16k',
-    maxContext: 16000,
-    maxResponse: 16000,
-    price: 0,
-    quoteMaxToken: 8000,
-    maxTemperature: 1.2,
-    censor: false,
-    vision: false,
-    defaultSystemChatPrompt: ''
-  },
-  {
-    model: 'gpt-4',
-    name: 'GPT4-8k',
-    maxContext: 8000,
-    maxResponse: 8000,
-    price: 0,
-    quoteMaxToken: 4000,
-    maxTemperature: 1.2,
-    censor: false,
-    vision: false,
-    defaultSystemChatPrompt: ''
-  },
-  {
-    model: 'gpt-4-vision-preview',
-    name: 'GPT4-Vision',
-    maxContext: 128000,
-    maxResponse: 4000,
-    price: 0,
-    quoteMaxToken: 100000,
-    maxTemperature: 1.2,
-    censor: false,
-    vision: true,
-    defaultSystemChatPrompt: ''
   }
 ];
 export const defaultQAModels: LLMModelItemType[] = [
   {
-    model: 'gpt-3.5-turbo-16k',
-    name: 'GPT35-16k',
+    model: 'deepseek-chat',
+    name: 'deepseek-chat',
     maxContext: 16000,
     maxResponse: 16000,
     price: 0
@@ -69,19 +33,10 @@ export const defaultQAModels: LLMModelItemType[] = [
 ];
 export const defaultCQModels: FunctionModelItemType[] = [
   {
-    model: 'gpt-3.5-turbo-1106',
-    name: 'GPT35-1106',
+    model: 'deepseek-chat',
+    name: 'deepseek-chat',
     maxContext: 16000,
     maxResponse: 4000,
-    price: 0,
-    functionCall: true,
-    functionPrompt: ''
-  },
-  {
-    model: 'gpt-4',
-    name: 'GPT4-8k',
-    maxContext: 8000,
-    maxResponse: 8000,
     price: 0,
     functionCall: true,
     functionPrompt: ''
@@ -89,8 +44,8 @@ export const defaultCQModels: FunctionModelItemType[] = [
 ];
 export const defaultExtractModels: FunctionModelItemType[] = [
   {
-    model: 'gpt-3.5-turbo-1106',
-    name: 'GPT35-1106',
+    model: 'deepseek-chat',
+    name: 'deepseek-chat',
     maxContext: 16000,
     maxResponse: 4000,
     price: 0,
@@ -100,8 +55,8 @@ export const defaultExtractModels: FunctionModelItemType[] = [
 ];
 export const defaultQGModels: LLMModelItemType[] = [
   {
-    model: 'gpt-3.5-turbo-1106',
-    name: 'GPT35-1106',
+    model: 'deepseek-chat',
+    name: 'deepseek-chat',
     maxContext: 1600,
     maxResponse: 4000,
     price: 0

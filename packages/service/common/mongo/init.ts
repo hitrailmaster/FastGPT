@@ -2,6 +2,8 @@ import mongoose from './index';
 import { createLogger, format, transports } from 'winston';
 import 'winston-mongodb';
 
+process.env.TOKEN_KEY = 'token_key_1';
+process.env.MONGODB_URI = 'mongodb://username:password@localhost:27017/fastgpt?authSource=admin';
 /**
  * connect MongoDB and init data
  */
